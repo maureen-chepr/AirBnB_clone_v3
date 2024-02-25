@@ -81,10 +81,12 @@ class DBStorage:
         @id: string representing the object ID
         Return: Object based on the class name and its ID, or None if not found
         """
-        obj = self.__session.query(cls).get(id)
-        if obj is None:
-            return None
-        return obj
+        cls_dict = self.all(cls)
+        for k, v in cls_dict.items():
+            obj = cls + '.' + id
+            if k == obj:
+                return v
+        return None
 
     def count(self, cls=None):
         """

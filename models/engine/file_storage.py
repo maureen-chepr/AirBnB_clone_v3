@@ -73,10 +73,12 @@ class FileStorage:
         """
         Returns the object
         """
-        obj = self.__session.query(cls).get(id)
-        if obj is None:
-            return None
-        return obj
+        cls_dict = self.all(cls)
+        for k, v in cls_dict.items():
+            obj = cls + '.' + id
+            if k == obj:
+                return v
+        return None
     
     def count(self, cls=None):
         """

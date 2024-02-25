@@ -15,6 +15,7 @@ from models.review import Review
 def getStatus():
     return jsonify({'status': 'OK'})
 
+
 @app_views.route('/stats')
 def stats():
     """
