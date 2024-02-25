@@ -13,6 +13,7 @@ from models.review import Review
 
 @app_views.route('/status')
 def getStatus():
+    """gets status"""
     return jsonify({'status': 'OK'})
 
 

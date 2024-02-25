@@ -12,6 +12,9 @@ from models.city import City
 
 @app_views.route('/cities/<city_id>', methods=['GET', 'DELETE', 'PUT'])
 def city(city_id):
+    """
+    GET && DELETE && PUT for city
+    """
     city = storage.get('City', city_id)
     if not city:
         abort(404)
@@ -36,6 +39,9 @@ def city(city_id):
 
 @app_views.route('/states/<state_id>/cities', methods=['GET', 'POST'])
 def cities_of_State(state_id):
+    """
+    GET && POST for city
+    """
     state = storage.get('State', state_id)
     if not state:
         abort(404)

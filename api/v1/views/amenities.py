@@ -10,6 +10,9 @@ from models.amenity import Amenity
 
 @app_views.route('/amenities', methods=['GET', 'POST'])
 def all_amenities():
+    """
+    GET & POST for amenities
+    """
     if request.method == 'GET':
         return jsonify([amen.to_dict()
                         for amen in storage.all('Amenity').values()])
@@ -25,6 +28,9 @@ def all_amenities():
 
 @app_views.route('/amenities/<amenity_id>', methods=['GET', 'DELETE', 'PUT'])
 def amenity(amenity_id):
+    """
+    DELETE && PUT for amenities
+    """
 
     amen = storage.get('Amenity', amenity_id)
 

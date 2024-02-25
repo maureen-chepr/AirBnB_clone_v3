@@ -63,6 +63,7 @@ def places(city_id):
 
 @app_views.route('/places_search', methods=['POST'])
 def places_search():
+    """POST for places"""
 
     headers = request.headers.get('Content-Type')
     if headers != 'application/json':

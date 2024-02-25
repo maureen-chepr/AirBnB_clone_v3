@@ -37,6 +37,9 @@ def reviews_by_place(place_id):
 
 @app_views.route('/reviews/<review_id>', methods=['GET', 'DELETE', 'PUT'])
 def review(review_id):
+    """
+    gets deletes and puts a review
+    """
 
     review = storage.get('Review', review_id)
     if review is None:

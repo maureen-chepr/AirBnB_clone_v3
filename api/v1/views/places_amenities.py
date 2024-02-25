@@ -12,6 +12,7 @@ from os import getenv
 
 @app_views.route('/places/<place_id>/amenities', methods=['GET'])
 def place_allamens(place_id):
+    """ GET for amenities"""
     place = storage.get('Place', place_id)
     if not place:
         abort(404)
@@ -23,6 +24,9 @@ def place_allamens(place_id):
 @app_views.route('/places/<place_id>/amenities/<amenity_id>',
                  methods=['DELETE', 'POST'])
 def place_amenity(place_id, amenity_id):
+    """
+    DELETE && POST for amenity
+    """
     amen = storage.get('Amenity', amenity_id)
     place = storage.get('Place', place_id)
     if not amen or not place:

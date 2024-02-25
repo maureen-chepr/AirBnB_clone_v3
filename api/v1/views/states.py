@@ -11,6 +11,9 @@ from flasgger import swag_from
 
 @app_views.route('/states', methods=['GET', 'POST'])
 def all_states():
+    """
+    gets and posts states
+    """
     if request.method == 'GET':
         return jsonify([state.to_dict()
                         for state in storage.all('State').values()])
